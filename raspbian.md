@@ -17,6 +17,10 @@ Insert the SD card into the Pi, plug the power and SSH into it with user `pi` an
 Set locales with `sudo dpkg-reconfigure locales`
 
 ## Packages
+Update apt
+```
+sudo apt update
+```
 Prevent `apt` from installing recommended and suggested packages with
 ```
 apt-config dump | grep -we Recommends -e Suggests | sed s/1/0/ | sudo tee /etc/apt/apt.conf.d/99norecommends
@@ -70,10 +74,6 @@ Disable useless services with
 ```
 sudo systemctl disable avahi-daemon bluetooth hciuart wpa_supplicant
 ```
-Update apt
-```
-sudo apt update
-```
 Useless packages to remove 
 ```
 sudo apt purge avahi-daemon bluez cifs-utils nano ncdu ntfs-3g pi-bluetooth raspi-config rfkill wireless-regdb wireless-tools wpasupplicant
@@ -90,7 +90,6 @@ Install packages (this doesn't install the recommended samba-vfs-modules that mi
 ```
 sudo apt install bridge-utils btrfs-progs git glances lxc neofetch samba vim zsh
 ```
-
 
 ## Bridge
 
