@@ -16,7 +16,7 @@ dtoverlay=disable-bt
 # Disable wifi
 dtoverlay=disable-wifi
 ```
-Enable SSH
+Create an empty `ssh` file in the boot folder to enable SSH
 ```
 touch /boot/ssh
 ```
