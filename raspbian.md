@@ -47,7 +47,7 @@ Upgrade everything
 ```
 sudo apt full-upgrade
 ```
-# Minimal
+## Minimal
 List of services enabled by default for Raspbian Buster Lite (2020-02-13)
 ```
 apt-daily-upgrade.timer
@@ -115,3 +115,21 @@ iface br0 inet dhcp
 iface eth0 inet manual
 ```
 Then start the bridge wiht `sudo ifup br0`
+
+## Oh My Zsh
+```
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+## Pi-hole
+Install
+```
+curl -sSL https://install.pi-hole.net | bash
+```
+Blocklists
+```
+https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribable-Lists/ParsedBlacklists/uBlockFiltersPlus.txt
+https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribable-Lists/ParsedBlacklists/EasyList.txt
+https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribable-Lists/ParsedBlacklists/EasyList-Liste-FR.txt
+https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribable-Lists/ParsedBlacklists/PeterLowes.txt
+```
