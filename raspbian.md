@@ -2,7 +2,7 @@
 
 Flash the raspbian image to the SD Card.
 
-To assign the minimum amount of memory to the GPU, disable bluetooth and wifi, replace `/boot/config.txt` with :
+Edit `/boot/config.txt` :
 ```
 # Use 64 bits kernel
 #arm_64bit=1
