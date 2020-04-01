@@ -91,6 +91,8 @@ sudo apt purge avahi-daemon bluez cifs-utils nano ncdu ntfs-3g pi-bluetooth rasp
 Clean dependancies
 ```
 sudo apt --purge autoremove
+# This should get rid of the following packages
+# alsa-utils bind9-host bluez-firmware fuse geoip-database libasound2 libasound2-data libavahi-common-data libavahi-common3 libavahi-core7 libbind9-161 libdaemon0 libdns1104 libfftw3-single3 libfstrm0 libfuse2 libgeoip1 libisc1100 libisccc161 libisccfg163 libiw30 liblmdb0 liblwres161 libntfs-3g883 libprotobuf-c1 libsamplerate0 libtalloc2 libwbclient0 triggerhappy crda iw libnl-3-200 libnl-genl-3-200 libnl-route-3-200 libpcsclite1
 ```
 Upgrade everything
 ```
