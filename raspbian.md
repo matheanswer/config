@@ -4,7 +4,7 @@ Flash the raspbian image to the SD Card.
 
 Edit `/boot/config.txt` :
 ```
-# Use 64 bits kernel
+# Use 64 bits kernel, probably bad for a Pi 3
 #arm_64bit=1
 
 # Assign the minimum amount of memory to the GPU
