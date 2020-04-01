@@ -4,12 +4,22 @@ Flash the raspbian image to the SD Card.
 
 To assign the minimum amount of memory to the GPU, disable bluetooth and wifi, replace `/boot/config.txt` with :
 ```
+# Use 64 bits kernel
+#arm_64bit=1
+
+# Assign the minimum amount of memory to the GPU
 gpu_mem=16
+
+# Disable bluetooth (sudo systemctl disable hciuart)
 dtoverlay=disable-bt
+
+# Disable wifi
 dtoverlay=disable-wifi
 ```
-Enable SSH with `touch /boot/ssh`
-
+Enable SSH
+```
+touch /boot/ssh
+```
 Insert the SD card into the Pi, plug the power and SSH into it with user `pi` and password `raspberry`
 
 ## Locale
