@@ -33,7 +33,7 @@ sudo apt update
 ```
 Prevent `apt` from installing recommended and suggested packages with
 ```
-apt-config dump | grep -we Recommends -e Suggests | sed s/1/0/ | sudo tee /etc/apt/apt.conf.d/99norecommends
+apt-config dump | grep -we Recommends -e Suggests | sed s/1/0/ | sudo tee /etc/apt/apt.conf.d/99-no-install-recommends
 ```
 Check the settings with 
 ```
