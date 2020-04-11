@@ -133,3 +133,15 @@ https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribabl
 https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribable-Lists/ParsedBlacklists/EasyList-Liste-FR.txt
 https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribable-Lists/ParsedBlacklists/PeterLowes.txt
 ```
+
+## Resizing the root partition
+As final adjustments, it's a good idea to resize the ext4 root partition so we don't run out of disk space. This is usually done automatically by raspbian but for the sake of simplicity I've excluded the script from my build.
+
+With fdisk:
+Delete the root partiton.
+Recreate the root partition while preserving the ext4 signature.
+Afterwards, the system should be rebooted and the root partition be resized using resize2fs.
+```
+sudo reboot
+sudo resize2fs /dev/mmcblk0p2
+```
