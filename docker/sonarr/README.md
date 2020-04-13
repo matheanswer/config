@@ -8,4 +8,5 @@ docker run -d \
  -v ~/:/data \
  --restart unless-stopped \
  --name sonarr \
- ```
+sonarr
+```
