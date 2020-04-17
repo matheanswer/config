@@ -66,6 +66,11 @@ Then start the bridge wiht `sudo ifup br0`
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+## grml zsh
+```
+wget -O .zshrc https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+```
+
 ## Pi-hole
 Install
 ```
