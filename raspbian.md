@@ -10,6 +10,9 @@ Edit `/boot/config.txt` :
 # Assign the minimum amount of memory to the GPU
 gpu_mem=16
 
+# Disable overscan
+disable_overscan=1
+
 # Disable bluetooth (sudo systemctl disable hciuart)
 dtoverlay=disable-bt
 
@@ -37,7 +40,7 @@ sudo apt update
 ```
 Prevent `apt` from installing recommended and suggested packages with
 ```
-apt-config dump | grep -we Recommends -e Suggests | sed s/1/0/ | sudo tee /etc/apt/apt.conf.d/99-no-install-recommends
+apt-config dump | grep -we Recommends -e Suggests | sed s/1/0/ | sudo tee /etc/apt/apt.conf.d/99recommends
 ```
 Check the settings with 
 ```
