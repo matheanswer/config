@@ -1,5 +1,5 @@
-FROM alpine
+FROM alpine:latest
 RUN apk add --no-cache transmission-daemon
-VOLUME /config
+VOLUME /config /media
 EXPOSE 9091 51413/tcp 51413/udp
-ENTRYPOINT ["/usr/bin/transmission-daemon","--foreground","--config-dir","/config"]
+ENTRYPOINT ["transmission-daemon","--foreground","--config-dir","/config"]

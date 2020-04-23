@@ -1,14 +1,14 @@
-FROM mono
+FROM ubuntu
 RUN apt-get update \
- && apt-get install -y --no-install-recommends \
-    mediainfo \
-    sqlite3 \
+ && DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y --no-install-recommends ca-certificates curl mono-devel mediainfo sqlite3 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  && mkdir /app
-RUN curl -L "$(curl -s https://api.github.com/repos/Radarr/Radarr/releases | grep linux.tar.gz | grep browser_download_url | head -1 | cut -d \" -f 4)" \
-  | tar -xzC /app --strip-components 1 \
- && chmod -R 755 /app
-VOLUME /config
+WORKDIR /app
+VOLUME /config /media
 EXPOSE 7878
-ENTRYPOINT ["/usr/bin/mono","--debug","/app/Radarr.exe","-data=/config","-nobrowser"]
+RUN curl -L "$(curl -s https://api.github.com/repos/Radarr/Radarr/releases | grep linux.tar.gz | grep browser_download_url | head -1 | cut -d \" -f 4)" \
+  | tar -xz --strip-components 1 \
+ && chmod -R 755 /app
+ENTRYPOINT ["mono","--debug","Radarr.exe","-data=/config","-nobrowser"]
