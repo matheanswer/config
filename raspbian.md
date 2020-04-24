@@ -98,3 +98,11 @@ Afterwards, the system should be rebooted and the root partition be resized usin
 sudo reboot
 sudo resize2fs /dev/mmcblk0p2
 ```
+
+## Locale
+.zshrc.local
+```
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+```
