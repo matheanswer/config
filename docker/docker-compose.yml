@@ -9,11 +9,11 @@ services:
     user: 1000:1000
     volumes:
       - ./transmission/config:/config
-      - ~/media:/media"
+      - /mnt/media:/media
     ports:
-      - "9091:9091"
-      - "51413:51413"
-      - "51413:51413/udp"
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
     environment:
       TZ: Europe/Paris
     restart: unless-stopped
@@ -25,9 +25,9 @@ services:
     user: 1000:1000
     volumes:
       - ./sonarr/config:/config
-      - ~/media:/media
+      - /mnt/media:/media
     ports:
-      - "8989:8989"
+      - 8989:8989
     environment:
       TZ: Europe/Paris
     restart: unless-stopped
@@ -39,52 +39,12 @@ services:
     user: 1000:1000
     volumes:
       - ./radarr/config:/config
-      - ~/media:/media
+      - /mnt/media:/media
     ports:
-      - "7878:7878"
+      - 7878:7878
     environment:
       TZ: Europe/Paris
     restart: unless-stopped
-
-  netdata:
-    container_name: netdata
-    image: netdata/netdata
-    hostname: pibuntu
-    ports:
-      - "19999:19999"
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - apparmor:unconfined
-    volumes:
-      - /etc/passwd:/host/etc/passwd:ro
-      - /etc/group:/host/etc/group:ro
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-    restart: unless-stopped
-
-  # pihole:
-  #   container_name: pihole
-  #   image: pihole/pihole:latest
-  #   ports:
-  #     - "53:53"
-  #     - "53:53/udp"
-  #     - "67:67/udp"
-  #     - "80:80"
-  #     - "443:443"
-  #   environment:
-  #     TZ: 'Europe/Paris'
-  #     WEBPASSWORD: 'kekw'
-  #   volumes:
-  #      - './etc-pihole/:/etc/pihole/'
-  #      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-  #   dns:
-  #     - 127.0.0.1
-  #     - 1.1.1.1
-  #   # Recommended but not required (DHCP needs NET_ADMIN)
-  #   cap_add:
-  #     - NET_ADMIN
-  #   restart: unless-stopped
 
 networks:
   default:
